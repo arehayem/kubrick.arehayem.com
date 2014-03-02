@@ -1,1 +1,1 @@
-this is my stanley kubrick fansite
+this is my stanley kubrick fansite. if http://kubrick.arehayem.com doesn't work, then there's something going on with DNS propogation and you can instead go directly to the aws endpoint: http://kubrick.arehayem.com.s3-website-us-east-1.amazonaws.com/
