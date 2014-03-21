@@ -3,6 +3,13 @@
 	font-weight:normal;
 }
 
+canvas {
+	display: block;
+	margin: 5px auto;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
 body {
 	margin: 0;
 	height: 100%;
@@ -50,7 +57,26 @@ a:hover {
 	visibility:hidden;
 }
 
-.bar a:hover {
+.visiblebar {
+	position:fixed;
+	text-align: left;
+	background:darkslategray;
+	padding:10px;
+	height:auto;
+	width:auto;
+	border: 5px solid silver;
+	border-radius:30px;
+	background: darkslategray;
+}
+
+.visiblebar a {
+	display: block;
+	color: mintcream;
+	padding: 5px;
+	visibility:visible;
+}
+
+.visiblebar a:hover {
 	text-decoration:none;
 	color: tomato;
 }
@@ -59,7 +85,7 @@ a:hover {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -20px;
+	margin: 0 auto -13px;
 }
 
 .footer, .push {
@@ -79,6 +105,7 @@ a:hover {
 	background: mintcream;
 	padding: 25px;
 	border: 2px solid darkslategray;
+	border-radius: 10px;
 }
 
 .content img {
@@ -103,9 +130,6 @@ a:hover {
 	padding: 25px;
 	border: 2px solid darkslategray;
 	text-align:center;
-}
-
-.title, .content {
 	border-radius: 10px;
 }
 
