@@ -54,7 +54,10 @@
 			var downDown = false;
 			var leftDown = false;
 			var rightDown = false;
+			var spaceDown = false;
 			var screen;
+			var bulletX;
+			var bulletY;
 			
 			// http://stackoverflow.com/questions/8916620/disable-arrow-key-scrolling-in-users-browser
 			var arrow_keys_handler = function(e) {
@@ -85,6 +88,7 @@
 				else if (event.keyCode == 40) downDown = true;
 				else if (event.keyCode == 37) leftDown = true;
 				else if (event.keyCode == 39) rightDown = true;
+				else if (event.keyCode == 32) spaceDown = true;
 			}
 			
 			function onKeyUp(event) {
@@ -92,6 +96,7 @@
 				else if (event.keyCode == 40) downDown = false;
 				else if (event.keyCode == 37) leftDown = false;
 				else if (event.keyCode == 39) rightDown = false;
+				else if (event.keyCode == 32) spaceDown = false;
 			}
 				
 			function clear() {
@@ -106,8 +111,7 @@
 			$(document).keydown(onKeyDown);
 			$(document).keyup(onKeyUp);
 			
-			function draw() {
-				clear();
+			function updatePlayerPosition() {
 				if (upDown) y -= diff;
 				else if (downDown) y += diff;
 				else if (leftDown) x -= diff;
@@ -116,6 +120,12 @@
 				else if (y < 0) y=0;
 				else if (x < 0) x=0;
 				else if (x > (WIDTH-playerWidth)) x=(WIDTH-playerWidth);
+			}
+				
+			
+			function draw() {
+				clear();
+				updatePlayerPosition();
 				drawPlayer(y);
 			}
 			

@@ -1,0 +1,101 @@
+/*extending the reset css*/
+
+ul {
+	list-style-type: none;
+}
+
+/*clearfix*/
+.img_wrapper:after{
+	content: '.';
+	clear:both;
+	height:0;
+	display:block;
+	visibility:hidden;
+}
+
+/*everything else*/
+
+body {
+	background-color: gray;
+}
+
+h2 {
+	font-size: 50px;
+	font-family: ubuntu,sans-serif;
+	padding: 5px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	z-index:5;
+	color:white;
+	background-color:rgba(0,0,0,.3);
+}
+
+.img_wrapper {
+
+}
+
+img {
+	display: block
+}
+
+#cat_show {
+	width: 900px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:darkseagreen;
+	position: relative;
+}
+
+img {
+	width:600px;
+}
+
+.primary_img {
+	float:left;
+}
+
+.secondary_imgs img {
+	width: 300px;
+}
+
+/*slide styles*/
+
+#cat_show li {
+	display:none;
+}
+
+#cat_show li.active {
+	display: block;
+}
+
+#cat_show .cycle {
+	position: absolute;
+	top: 45%;
+	/*left: 0%;*/
+	z-index:100;
+	width:60px;
+	height:60px;
+	background-color: black;
+	line-height:60px;
+	text-align: center;
+	font-family: ubuntu,sans-serif;
+	color:white;
+	line-height: 60px;
+}
+
+#cat_show .cycle:hover {
+	background-color: gray;
+	cursor:pointer;
+}
+
+#cat_show .prev {
+	left: -60px;
+	border-radius: 10px 0 0 10px;
+}
+
+#cat_show .next {
+	right:-60px;
+	border-radius: 0 10px 10px 0;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Show</title>
+	<style>
+		body {
+			overflow: hidden;
+		}
+		
+		.content {
+			display: block;
+			margin: auto;
+			width: 70%;
+		}
+		
+		img, .invisible {
+			visibility: hidden;
+			border-radius: 5px;
+		}
+		
+		.left, .right {
+			visibility: visible;
+			width: 24%;
+		}
+		
+		.center {
+			visibility: visible;
+			width: 50%;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="content">
+		<img id="0" />
+		<img id="1" src="1128091249.jpg" />
+		<img id="2" src="1128091249a.jpg" />
+		<img id="3" src="1128091249b.jpg" />
+		<img id="4" src="1128091249c.jpg" />
+		<img id="5" src="1128091249d.jpg" />
+		<img id="6" src="1128091252.jpg" />
+		<img id="7" src="1128091253.jpg" />
+		<img id="8" src="1128091309.jpg" />
+		<img id="9" src="1128091310.jpg" />
+		<img id="10" />
+	</div>
+	<script src="../jquery.js"></script>
+	<script>
+		var index = 1;
+		var last;
+		var left;
+		var center;
+		var right;
+		var next;
+		
+		function update() {
+			last = $('#'+(index-2));
+			left = $('#'+(index-1));
+			center = $('#'+index);
+			right = $('#'+(index+1));
+			next = $('#'+(index+2));
+			last.attr('class', 'invisible');
+			left.attr('class', 'left');
+			center.attr('class', 'center');
+			right.attr('class', 'right');
+			next.attr('class', 'invisible');
+		};
+		
+		update();
+			
+		$(document).on("keyup", function(e){
+			if(e.which == 37 && 2<index<9) {index = index - 1;}
+			else if(e.which == 39 && 1<index<8) {index = index + 1;}
+			update();
+		});
+		
+		
+	</script>
+</body>
+</html>
