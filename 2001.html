@@ -25,6 +25,7 @@
 		<div class="title">
 			<h1>2001: A Space Odyssey</h1>
 		</div>
+		<center>Move with arrow keys. Shoot with space.</center>
 		<canvas id="space_game" width="500px" height="400px"></canvas>
 		<div class="content">
 			<img src="posters/2001.jpg" />
@@ -39,98 +40,19 @@
 		<div class="push"></div>
 		</div>
 		<div class="footer">andrewrehayem@gmail.com | Andrew Rehayem | Cooper Union EE '16</div>
+		<!-- <script>
+			everything = $('.content, .bar, #space_game, .footer, .title');
+			everything.addClass('deepspace');
+			$('body').css('background-color', 'black');
+			$(document).on('click', function() {
+				everything.removeClass('deepspace');
+				$('body').css('background-color', 'black');
+			});
+		
+		</script>-->
 		<script src="jquery.js"></script>
 		<script src="bar.js"></script>
-		<script>
-			// based on http://billmill.org/static/canvastutorial/index.html
-			var x = 0;
-			var y = 200;
-			var diff = 10;
-			var WIDTH;
-			var HEIGHT;
-			var playerWidth = 20;
-			var playerHeight = 10;
-			var upDown = false;
-			var downDown = false;
-			var leftDown = false;
-			var rightDown = false;
-			var spaceDown = false;
-			var screen;
-			var bulletX;
-			var bulletY;
-			
-			// http://stackoverflow.com/questions/8916620/disable-arrow-key-scrolling-in-users-browser
-			var arrow_keys_handler = function(e) {
-				switch(e.keyCode){
-					case 37: case 39: case 38:  case 40: // Arrow keys
-					case 32: e.preventDefault(); break; // Space
-					default: break; // do not block other keys
-				}
-			};
-			window.addEventListener("keydown", arrow_keys_handler, false);
-			
-			function init() {
-				screen = $('#space_game')[0].getContext("2d");
-				WIDTH = $('#space_game').width();
-				HEIGHT = $('#space_game').height();
-				return setInterval(draw, 10);
-			}
-			
-			function drawPlayer(y) {
-				screen.beginPath();
-				screen.rect(x, y, 20, 10);
-				screen.closePath();
-				screen.fill();
-			}
-			
-			function onKeyDown(event) {
-				if (event.keyCode == 38) upDown = true;
-				else if (event.keyCode == 40) downDown = true;
-				else if (event.keyCode == 37) leftDown = true;
-				else if (event.keyCode == 39) rightDown = true;
-				else if (event.keyCode == 32) spaceDown = true;
-			}
-			
-			function onKeyUp(event) {
-				if (event.keyCode == 38) upDown = false;
-				else if (event.keyCode == 40) downDown = false;
-				else if (event.keyCode == 37) leftDown = false;
-				else if (event.keyCode == 39) rightDown = false;
-				else if (event.keyCode == 32) spaceDown = false;
-			}
-				
-			function clear() {
-				screen.clearRect(0, 0, WIDTH, HEIGHT);
-			}
-			
-			/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-			function randNum(HEIGHT) {
-				return Math.random() * HEIGHT;
-			} */
-			
-			$(document).keydown(onKeyDown);
-			$(document).keyup(onKeyUp);
-			
-			function updatePlayerPosition() {
-				if (upDown) y -= diff;
-				else if (downDown) y += diff;
-				else if (leftDown) x -= diff;
-				else if (rightDown) x += diff;
-				if (y > (HEIGHT-playerHeight)) y=(HEIGHT-playerHeight);
-				else if (y < 0) y=0;
-				else if (x < 0) x=0;
-				else if (x > (WIDTH-playerWidth)) x=(WIDTH-playerWidth);
-			}
-				
-			
-			function draw() {
-				clear();
-				updatePlayerPosition();
-				drawPlayer(y);
-			}
-			
-			init();
-		</script>
+		<script src="spacegame.js"></script>
 	</body>
 
 </html>

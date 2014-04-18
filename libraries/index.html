@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Templating Workshop</title>
+	<script src='../js/jquery.min.js'></script>
+	<script src="http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.js"></script>
+	<link 
+		rel='stylesheet' 
+		type='text/css' 
+		href='../css/html5reset-1.6.1.css' />
+	<link 
+		rel='stylesheet' 
+		type='text/css' 
+		href='slideshow.css' />
+	<link rel="stylesheet" href="../fonts/font-awesome-4.0.3/css/font-awesome.min.css" />
+	<style>
+	<style>
+		img {
+			width = 500px;
+		}
+	</style>
+</head>
+
+<body>
+	<section id='cat_show'>
+		<span class='cycle prev'><i class="fa fa-arrow-circle-left fa-3x fa-inverse"></i></span>
+		<span class='cycle next'><i class="fa fa-arrow-circle-right fa-3x fa-inverse"></i></span>
+	</section>
+	<script type="text/template" id='slideTmpl'>
+		<ul>
+			{{#slides}}
+			<li>
+				<div class="img_wrapper">
+					<img 
+						class='primary_img' 
+						src='../images/cats/{{primary_img}}'/>
+					<div class='secondary_imgs'>
+						{{#secondary_imgs}}
+							<img src='../images/cats/{{.}}'/>
+						{{/secondary_imgs}}
+					</div>
+				</div>
+				<h2>{{caption}}</h2>
+			</li>
+			{{/slides}}
+		</ul>
+	</script>
+	<script src='slideshow.js'></script>
+</body>
+
+</html>
