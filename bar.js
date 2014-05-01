@@ -1,5 +1,7 @@
 var bar = $('.bar')
 
+$('[href="'+document.location.href.match(/[^\/]+$/)[0]+'"]').attr('id', 'current');
+
 bar.on('mouseover', function(){
 	
 	bar.attr('class', 'visiblebar');

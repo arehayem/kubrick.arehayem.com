@@ -17,10 +17,6 @@ body {
 	overflow-y: scroll;
 }
 
-span {
-	color: tomato;
-}
-
 html {
 	height: 100%;
 }
@@ -55,10 +51,7 @@ a:hover {
 	background: radial-gradient(yellow,red,black,black);
 }
 
-.bar a {
-	display: block;
-	color: mintcream;
-	padding: 5px;
+.bar a, .bar span {
 	visibility:hidden;
 }
 
@@ -74,15 +67,26 @@ a:hover {
 	background: darkslategray;
 }
 
-.visiblebar a {
+.visiblebar #current {
+	color: tomato;
+}
+
+.visiblebar a, .visiblebar span {
 	display: block;
 	color: mintcream;
 	padding: 5px;
 	visibility:visible;
 }
 
+.visiblebar span {
+	display: block;
+	color: darkgrey;
+	padding: 5px;
+	visibility: visible;
+}
+
 .visiblebar a:hover {
-	text-decoration:none;
+	text-decoration: none;
 	color: tomato;
 }
 

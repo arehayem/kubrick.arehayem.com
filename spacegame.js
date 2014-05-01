@@ -9,6 +9,7 @@ var playerWidth = 20;
 var playerHeight = 10;
 var screen;
 var bullets = [];
+var asteroids = [];
 
 function handler(e) {
 	switch(e.which){
@@ -45,10 +46,10 @@ function drawBullets() {
 		screen.rect(bullet.x_position, bullet.y_position, 3, 3);
 		screen.closePath();
 		screen.fill();
-		if (bullet.x_position > WIDTH/2) bullets.splice(index, 1);
+		if (bullet.x_position > WIDTH)
+			bullets.splice(index, 1);
 	});
 }
-		
 
 function drawPlayer() {
 	screen.beginPath();
