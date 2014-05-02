@@ -87,8 +87,8 @@ function drawPlayer() {
 }
 
 function colliding(x1, y1, x2, y2) {
-	if (x1 >= x2 - 5 && x1 <= x2 + 5 &&
-	y1 >= y2 - 5 && y1 <= y2 + 5)
+	if (x1 >= x2 - 10 && x1 <= x2 + 10 &&
+	y1 >= y2 - 10 && y1 <= y2 + 10)
 		return true;
 	else
 		return false;
