@@ -1,16 +1,18 @@
 // Space Game - Andrew Rehayem - 2014
 
+var screen = $('#space_game')[0].getContext("2d");
+var WIDTH = $('#space_game').width();
+var HEIGHT = $('#space_game').height();
 var x = 0;
-var y = 200;
+var y = HEIGHT/2;
 var diff = 15;
-var WIDTH;
-var HEIGHT;
 var playerWidth = 20;
 var playerHeight = 10;
-var screen;
 var bullets = [];
 var asteroids = [];
 var playerDead = false;
+var gameStarted = false;
+var ID1, ID2;
 
 function handler(e) {
 	switch(e.which){
@@ -30,11 +32,10 @@ function handler(e) {
 }
 
 function init() {
-	screen = $('#space_game')[0].getContext("2d");
-	WIDTH = $('#space_game').width();
-	HEIGHT = $('#space_game').height();
-	setInterval(draw, 5);
-	setInterval(spawnAsteroid, 200);
+	if (gameStarted == false) {
+		ID1 = setInterval(draw, 5);
+		ID2 = setInterval(spawnAsteroid, 100);
+	};
 }
 
 function shoot() {
@@ -46,33 +47,41 @@ function spawnAsteroid() {
 }
 
 function drawBullets() {
-	$.each(bullets, function(index, bullet) {
-		bullet.x_position++;
+	for(var i=0; i<bullets.length; i++) {
+		bullets[i].x_position++;
 		screen.beginPath();
-		screen.rect(bullet.x_position, bullet.y_position, 3, 3);
+		screen.rect(bullets[i].x_position, bullets[i].y_position, 3, 3);
 		screen.closePath();
 		screen.fill();
-		if (bullet.x_position > WIDTH)
-			bullets.splice(index, 1);
-	});
+		if (bullets[i].x_position > WIDTH) {
+			bullets.splice(i, 1);
+			i--;
+		};
+	};
 }
 
 function drawAsteroids() {
-	$.each(asteroids, function(index, asteroid) {
-		asteroid.x_position--;
+	for(var i=0; i<asteroids.length; i++) {
+		asteroids[i].x_position--;
 		screen.beginPath();
-		screen.arc(asteroid.x_position, asteroid.y_position, 10, 0,2*Math.PI);
+		screen.arc(asteroids[i].x_position, asteroids[i].y_position, 10, 0,2*Math.PI);
 		screen.closePath();
 		screen.fill();
-		if (asteroid.x_position < 0)
-			asteroids.splice(index, 1);
-	});
-	$.each(bullets, function(index, bullet) {
-		$.each(asteroids, function(index, asteroid) {
-			if (colliding(bullet.x_position, bullet.y_position, asteroid.x_position, asteroid.y_position))
-				asteroids.splice(index, 1);
-		});
-	});
+		if (asteroids[i].x_position < 0) {
+			asteroids.splice(i, 1);
+			i--;
+		};
+	};
+	for(var i=0; i<bullets.length; i++) {
+		for(var j=0; j<asteroids.length; j++) {
+			if (colliding(bullets[i].x_position, bullets[i].y_position, asteroids[j].x_position, asteroids[j].y_position)) {
+				asteroids.splice(j, 1);
+				bullets.splice(i, 1);
+				j--;
+				i--;
+			};
+		};
+	};
 }
 
 function drawPlayer() {
@@ -93,21 +102,36 @@ function colliding(x1, y1, x2, y2) {
 	else
 		return false;
 }
-	
-	
+
 function clear() {
 	screen.clearRect(0, 0, WIDTH, HEIGHT);
 }
 
 function draw() {
 	clear();
-	if (playerDead == false) {
-		drawPlayer();
-		drawBullets();
-		drawAsteroids();
+	drawPlayer();
+	drawBullets();
+	drawAsteroids();
+	if (playerDead) {
+		clearInterval(ID1);
+		clearInterval(ID2);
+		screen.font="20px Helvetica";
+		screen.fillText("click to start",WIDTH/2-50,HEIGHT/2);
+		bullets = [];
+		asteroids = [];
+		gameStarted = false;
+		playerDead = false;
+		x = 0;
+		y = HEIGHT/2;
 	};
 }
 
-init();
+screen.font="20px Helvetica";
+screen.fillText("click to start",WIDTH/2-50,HEIGHT/2);
+
+$('#space_game').on("click", function() {
+	init();
+	gameStarted = true;
+});
 
 $(document).on("keydown", handler);
