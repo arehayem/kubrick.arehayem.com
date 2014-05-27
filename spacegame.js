@@ -50,7 +50,7 @@ function drawBullets() {
 	for(var i=0; i<bullets.length; i++) {
 		bullets[i].x_position++;
 		screen.beginPath();
-		screen.rect(bullets[i].x_position, bullets[i].y_position, 3, 3);
+		screen.rect(bullets[i].x_position, bullets[i].y_position+5, 20, 1);
 		screen.closePath();
 		screen.fill();
 		if (bullets[i].x_position > WIDTH) {
