@@ -17,10 +17,8 @@ var playerheight, playerwidth;
 var spaceship = new Image();
 spaceship.src = "spaceship_small.png";
 spaceship.onload = function() {
-	screen.drawImage(spaceship,x,y);
 	playerheight = this.height;
 	playerwidth = this.width;
-	console.log(playerheight, playerwidth);
 };
 
 function handler(e) {
