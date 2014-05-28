@@ -13,6 +13,15 @@ var asteroids = [];
 var playerDead = false;
 var gameStarted = false;
 var ID1, ID2;
+var playerheight, playerwidth;
+var spaceship = new Image();
+spaceship.src = "spaceship_small.png";
+spaceship.onload = function() {
+	screen.drawImage(spaceship,x,y);
+	playerheight = this.height;
+	playerwidth = this.width;
+	console.log(playerheight, playerwidth);
+};
 
 function handler(e) {
 	switch(e.which){
@@ -39,7 +48,7 @@ function init() {
 }
 
 function shoot() {
-	bullets.push({x_position: x, y_position: y});
+	bullets.push({x_position: x + playerwidth, y_position: y + playerheight/2});
 }
 
 function spawnAsteroid() {
@@ -50,7 +59,7 @@ function drawBullets() {
 	for(var i=0; i<bullets.length; i++) {
 		bullets[i].x_position++;
 		screen.beginPath();
-		screen.rect(bullets[i].x_position, bullets[i].y_position+5, 20, 1);
+		screen.rect(bullets[i].x_position, bullets[i].y_position, 4, 4);
 		screen.closePath();
 		screen.fill();
 		if (bullets[i].x_position > WIDTH) {
@@ -89,10 +98,7 @@ function drawPlayer() {
 		if (colliding(x, y ,asteroid.x_position, asteroid.y_position))
 			playerDead = true;
 	});
-	screen.beginPath();
-	screen.rect(x, y, 20, 10);
-	screen.closePath();
-	screen.fill();
+	screen.drawImage(spaceship,x,y);
 }
 
 function colliding(x1, y1, x2, y2) {
@@ -109,9 +115,9 @@ function clear() {
 
 function draw() {
 	clear();
-	drawPlayer();
 	drawBullets();
 	drawAsteroids();
+	drawPlayer();
 	if (playerDead) {
 		clearInterval(ID1);
 		clearInterval(ID2);
