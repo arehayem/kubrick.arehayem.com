@@ -1,0 +1,150 @@
+p {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+html {
+}
+
+.content {
+	margin: 0 auto;
+	width: 1075px;
+	max-width: 100%;
+}
+
+#menu {
+	margin: 0 auto;
+}
+
+#menu a {
+	display: block;
+	margin: auto;
+	width: 800px;
+	max-width: 100%;
+}
+
+#menu div {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	height: 200px;
+	width: 800px;
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+#menu div p {
+	display: inline block;
+	padding-top: 40px;
+	font-size: 50px;
+	line-height: 50px;
+	color: white;
+	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
+}
+
+#stare {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/stare/ACOa.png);
+  background-position: center;
+}
+
+#perspective {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/SPP/TSa.png);
+  background-position: center;
+}
+
+#humor {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/humor/DSa.png);
+  background-position: center;
+}
+
+#costumes {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/costumes/2ASOa.png);
+  background-position: center;
+}
+
+#effects {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/effects/2ASOa.png);
+  background-position: center;
+}
+
+.menu {
+	display: block;
+	float: right;
+	width: 70px;
+}
+
+.menu img {
+	width: 70px;
+	opacity: .5;
+	margin-bottom: 5px;
+}
+
+.selected {
+	display: block;
+	width: 1000px;
+	max-width: calc(100% - 75px);
+}
+
+#selected {
+	display: block;
+	width: 1000px;
+	max-width: 100%;
+}
+
+.selected p {
+	margin-top: 5px;
+}
+
+#sound {
+	margin-bottom: -1px;
+}
+
+.nav #exit {
+	margin-bottom: -1px;
+	margin-left: 4px;
+}
+
+#current {
+	opacity: 1;
+}
+
+.nav {
+	padding: 10px;
+	display: table;
+	margin: auto;
+}
+
+.nav img {
+	height: 15px;
+	cursor: pointer;
+}
+
+.nav a {
+	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
+	text-decoration: none;
+	margin-right: 8px;
+	color: black;
+}
+
+.hal {
+	cursor: pointer;
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
+	border: 3px solid silver;
+	border-radius: 100px;
+	background: radial-gradient(yellow,red 20%,black, black);
+}
+
+.title {
+	line-height: 46px;
+	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
+	font-size: 26px;
+	color: black;
+	text-align: center;
+	margin-bottom: -18px;
+	margin-top: -20px;
+}

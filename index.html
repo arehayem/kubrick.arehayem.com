@@ -2,63 +2,43 @@
 <html>
 
 	<head>
-		<link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon"/>
-		<link rel="icon" href="/favicons/favicon.ico" type="image/x-icon"/>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.css"/>
+		<link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon"/>
+		<link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+		<link type="text/css" rel="stylesheet" href="css/hover.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.css"/>-->
 		<title>SK| Stanley Kubrick</title>
-		<script src="jquery.js"></script>
-		<script src="tracking.js"></script>
-		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.min.js"></script>-->
 	</head>
 
-	<body>
-		<div class="wrapper">
-		<div class="bar">
-			<a href="index.html">Stanley Kubrick</a>
-			<a href="2001.html">2001: A Space Odyssey</a>
-			<a href="clockwork.html">A Clockwork Orange</a>
-			<a href="jacket.html">Full Metal Jacket</a>
-			<a href="lolita.html">Lolita</a>
-			<a href="lyndon.html">Barry Lyndon</a>
-			<a href="shining.html">The Shining</a>
-			<a href="spartacus.html">Spartacus</a>
-			<a href="strangelove.html">Dr. Strangelove</a>
-			<a href="wideshut.html">Eyes Wide Shut</a>
+	<body id="Home">
+		<div class="nav">
+			<a href="index.html">Home</a>
+			<a href="stare.html">The Stare</a>
+			<a href="perspective.html">One Point Perspective</a>
+			<a href="humor.html">Humor</a>
+			<a href="costumes.html">Costumes</a>
+			<a href="effects.html">Effects</a>
+			<img id="sound" src="./img/off.png" />
+			<img id="exit" src="./img/exit.png" />
 		</div>
-		<div class="title">
-			<h1>Stanley Kubrick</h1>
-		</div>
+		<div class="hal"></div>
 		<div class="content">
-			<p>This site pays homage to the greatest director of all time, Stanley Kubrick. It documents each
-			of his movies starting from Spartacus, through his last movie, Eyes Wide Shut. Please refer to the
-			HAL9000 computer for site navigation, but try not to get on his bad side. The site is still an
-			infant and is currently being developed.</p>
+			<div class="title">
+				<h1>STANLEY KUBRICK</h1>
+			</div>
+			<div id="menu">
+				<a href="stare.html"><div class="hvr-sweep-to-bottom" id="stare"><p>The Stare</p></div></a>
+				<a href="perspective.html"><div class="hvr-sweep-to-bottom" id="perspective"><p>One Point Perspective</p></div></a>
+				<a href="humor.html"><div class="hvr-sweep-to-bottom" id="humor"><p>Humor</p></div></a>
+				<a href="costumes.html"><div class="hvr-sweep-to-bottom" id="costumes"><p>Costumes</p></div></a>
+				<a href="effects.html"><div class="hvr-sweep-to-bottom" id="effects"><p>Effects</p></div></a>
+			</div>
 		</div>
-		<div class="slider multiple-items">
-			<div><img src="/posters/2001.jpg" /></div>
-			<div><img src="/posters/clockwork.jpg" /></div>
-			<div><img src="/posters/jacket.jpg" /></div>
-			<div><img src="/posters/lolita.jpg" /></div>
-			<div><img src="/posters/lyndon.jpg" /></div>
-			<div><img src="/posters/shining.jpg" /></div>
-			<div><img src="/posters/spartacus.jpg" /></div>
-			<div><img src="/posters/strangelove.jpg" /></div>
-			<div><img src="/posters/wideshut.jpg" /></div>
-		</div>
-		<div class="push"></div>
-		</div>
-		<div class="footer">andrewrehayem@gmail.com | Andrew Rehayem | Cooper Union EE '16</div>
-		<script>
-			$('.multiple-items').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				dots: true
-			});
-		</script>
-		<script src="bar.js"></script>
-		<script src="construction.js"></script>
+		<script src="js/bar.js"></script>
+		<audio loop><source src="music/danube.mp3" type="audio/mpeg"></audio>
 	</body>
 
 </html>

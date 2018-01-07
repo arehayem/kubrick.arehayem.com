@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon"/>
+		<link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+		<link type="text/css" rel="stylesheet" href="css/hover.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.css"/>-->
+		<title>SK| Stanley Kubrick</title>
+		<script src="js/jquery.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.min.js"></script>-->
+	</head>
+
+	<body id="Home">
+		<div class="nav">
+			<a href="index.html">Home</a>
+			<a href="stare.html">The Stare</a>
+			<a href="perspective.html">One Point Perspective</a>
+			<a href="humor.html">Humor</a>
+			<a href="costumes.html">Costumes</a>
+			<a href="effects.html">Effects</a>
+			<img id="sound" src="./img/off.png" />
+			<img id="exit" src="./img/exit.png" />
+		</div>
+		<div class="hal"></div>
+		<div class="content">
+			<div class="title">
+				<h1>THE STARE</h1>
+			</div>
+			<div class="menu">
+				<img id="first" src="img/stare/ACO.png" class="hvr-grow" alt="Alex gets some milk plus at the Korova Milk Bar."/>
+				<img src="img/stare/DS.png" class="hvr-grow" alt="General Jack Ripper confronts Group Captain Lionel Mandrake."/>
+				<img src="img/stare/FMJ.png" class="hvr-grow" alt="Private Pyle, armed with a loaded gun, leers at Joker."/>
+				<img src="img/stare/TS.png" class="hvr-grow" alt="Jack Torrance freezes to death after getting lost in a maze."/>
+				<img src="img/stare/2ASO.png" class="hvr-grow" alt=""/>
+			</div>
+			<div class="selected">
+				<img id="selected" />
+				<p></p>
+			</div>
+		</div>
+		<script>
+			var first = $("#first");
+			$(".selected p").html($("#first").attr("alt"));
+			first.attr("id", "current");
+			$("#selected").attr("src", first.attr("src"));
+			$(".menu img").click(function() {
+				$("#current").attr("id", "none");
+				$(this).attr("id", "current");
+				$("#selected").attr("src", $(this).attr("src"));
+				$(".selected p").html($(this).attr("alt"));
+			})
+		</script>
+		<script src="js/bar.js"></script>
+		<audio loop><source src="music/clockwork.mp3" type="audio/mpeg"></audio>
+	</body>
+
+</html>
