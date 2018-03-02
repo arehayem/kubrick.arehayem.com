@@ -148,3 +148,7 @@ html {
 	margin-bottom: -18px;
 	margin-top: -20px;
 }
+
+.nbws {
+	white-space: nowrap;
+}

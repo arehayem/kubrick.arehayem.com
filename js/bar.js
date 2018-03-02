@@ -3,6 +3,7 @@ var menuopen = false;
 $('#Home').css('margin-top', ((-1*($('.nav').height()+15))+'px'));
 window.addEventListener("resize", function() {
 	$('#Home').css('margin-top', ((-1*($('.nav').height()+15))+'px'));
+	menuopen = false;
 	
 }, false);
 
